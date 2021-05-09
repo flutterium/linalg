@@ -84,7 +84,7 @@ class Matrix {
     if (m <= 0 || n <= 0) {
       throw MatrixInvalidDimensions("m and n must be positive.");
     }
-    List<List<double>> toRet = List<List<double>>();
+    List<List<double>> toRet = [];
     for (int i = 0; i < m; i++) {
       List<double> sub = [];
       for (int j = 0; j < n; j++) {
@@ -355,7 +355,7 @@ class Matrix {
         double v = this[r][c];
         if (v != 0.0) {
           Matrix sub = cut(r, c);
-          double coFactor = pow(-1, r + c) * sub.det();
+          double coFactor = (pow(-1, r + c) * sub.det()).toDouble();
           det += v * coFactor;
         }
       }
@@ -367,7 +367,7 @@ class Matrix {
         double v = this[r][c];
         if (v != 0.0) {
           Matrix sub = cut(r, c);
-          double coFactor = pow(-1, r + c) * sub.det();
+          double coFactor = (pow(-1, r + c) * sub.det()).toDouble();
           det += v * coFactor;
         }
       }
@@ -392,7 +392,7 @@ class Matrix {
     for (int r = 0; r < this.m; r++) {
       for (int c = 0; c < this.n; c++) {
         Matrix sub = cut(r, c);
-        double v = pow(-1, r + c) * sub.det();
+        double v = (pow(-1, r + c) * sub.det()).toDouble();
         cf[r][c] = v;
       }
     }
@@ -453,7 +453,7 @@ class Matrix {
 
   /// Returns a deep copy of the Matrix.
   Matrix copy() {
-    List<List<double>> storage = List<List<double>>();
+    List<List<double>> storage = [];
     for (int i = 0; i < m; i++) {
       storage.add(List<double>.generate(n, (j) => this[i][j]));
     }

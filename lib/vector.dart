@@ -396,7 +396,7 @@ class Vector {
           "Cross product requires both vectors to have 3 elements.");
     }
 
-    List<double> values = List<double>();
+    List<double> values = [];
 
     values.add(this[1] * other[2] - this[2] * other[1]);
     values.add(this[2] * other[0] - this[0] * other[2]);
